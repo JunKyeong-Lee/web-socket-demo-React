@@ -11,7 +11,7 @@ const SubscribeComponent = ({ stompClient }) => {
 
     useEffect(() => {
         const newSubscriptions = [
-            stompClient?.subscribe('/topic/messenger/rooms/1', (message) => {
+            stompClient?.subscribe('/topic/messenger/rooms/255', (message) => {
                 const receivedMessage = JSON.parse(message.body);
                 console.log('수신시작 >>> message:', receivedMessage);
                 setMessages((prevMessages) => [...prevMessages, receivedMessage]);
@@ -36,7 +36,7 @@ const SubscribeComponent = ({ stompClient }) => {
         return () => {
             newSubscriptions.forEach((subscription) => subscription?.unsubscribe());
         };
-    }, []);
+    }, [stompClient]);
 
     useEffect(() => {
         console.log('현재 messages:', messages);
@@ -58,7 +58,7 @@ const SubscribeComponent = ({ stompClient }) => {
         // 다음 메서드는 데이터를 전송하는 내용이다.
         stompClient?.publish({
             // 목적지. 즉, 어느 장소로 보내는지. MessageMapping 부분이 받을 것이다.
-            destination: '/app/messenger/rooms/1/send',
+            destination: '/app/messenger/rooms/255/send',
             // body. 실제 데이터를 나타낸다.
             body: JSON.stringify(message),
         });
