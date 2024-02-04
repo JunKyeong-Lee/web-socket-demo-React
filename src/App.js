@@ -13,7 +13,7 @@ const App = () => {
     useEffect(() => {
         const connectAndSubscribe = () => {
             // WebSocket 서버 주소. 엔드포인트 주소를 말한다. http가 아니라 ws로 써야 된다. 나중에는 보안을 위해 https처럼 wss로 써야되긴 하다.
-            const socket = new WebSocket('ws://localhost:8080/websocket');
+            const socket = new WebSocket('ws://localhost:1208/websocket');
             // Stomp 프로토콜을 사용하는 클라이언트를 생성한다.
             const stomp = new Client();
 
