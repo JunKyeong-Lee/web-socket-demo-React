@@ -13,3 +13,5 @@ npm start
 이후에
 
 [localhost:3000](http://localhost:3000) 으로 접속한다.
+
+물론 BackEnd 서버도 작동해야 한다.
